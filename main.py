@@ -11,10 +11,9 @@ def get_air_quality():
         return JSONResponse(content={"error": "API_KEY not set"}, status_code=500)
 
     base_url = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty"
-    encoded_key = urllib.parse.quote(api_key)
 
     params = {
-        "serviceKey": encoded_key,
+        "serviceKey": api_key,
         "returnType": "json",
         "numOfRows": "1",
         "pageNo": "1",
