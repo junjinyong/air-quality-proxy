@@ -5,7 +5,7 @@ import requests, urllib.parse, os
 app = FastAPI()
 
 @app.get("/getAirQuality")
-def get_air_quality(stationName: str = "종로구"):
+def get_air_quality():
     api_key = os.getenv("API_KEY")
     if not api_key:
         return JSONResponse(content={"error": "API_KEY not set"}, status_code=500)
@@ -18,7 +18,7 @@ def get_air_quality(stationName: str = "종로구"):
         "returnType": "json",
         "numOfRows": "1",
         "pageNo": "1",
-        "stationName": stationName,
+        "stationName": "강남구",
         "dataTerm": "DAILY",
         "ver": "1.0"
     }
